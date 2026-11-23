@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+  <head><meta charset="utf-8" /><title>Sandbox invoices</title></head>
+  <body>
+    <h1>Invoices</h1>
+    <pre id="list">Loading…</pre>
+    <script type="module">
+      import { fetchInvoices, renderInvoiceRow } from './src/client.js';
+      const list = document.getElementById('list');
+      fetchInvoices('http://localhost:8080')
+        .then((rows) => (list.textContent = rows.map(renderInvoiceRow).join('\n') || 'No invoices yet'))
+        .catch((e) => (list.textContent = e.message));
+    </script>
+  </body>
+</html>
