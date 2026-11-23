@@ -16,3 +16,7 @@ test('fetchInvoices reads the api', async () => {
 test('fetchInvoices surfaces api errors', async () => {
   await assert.rejects(fetchInvoices('http://api', async () => ({ ok: false, status: 503 })), /503/);
 });
+
+test('shows the due date when present', () => {
+  assert.equal(renderInvoiceRow({ ...invoice, dueDate: '2026-12-31' }), 'inv_1 | cus_1 | $12.50 | sent | due 2026-12-31');
+});

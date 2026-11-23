@@ -10,5 +10,5 @@ export function formatAmount(amountCents, currency) {
 }
 
 export function renderInvoiceRow(invoice) {
-  return `${invoice.id} | ${invoice.customerId} | ${formatAmount(invoice.amountCents, invoice.currency)} | ${invoice.status}`;
+  return `${invoice.id} | ${invoice.customerId} | ${formatAmount(invoice.amountCents, invoice.currency)} | ${invoice.status}${invoice.dueDate ? ` | due ${invoice.dueDate}` : ''}`;
 }
