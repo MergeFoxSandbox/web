@@ -1,0 +1,8 @@
+name: mf-gate-check
+on: pull_request
+permissions: {}
+jobs:
+  packgate:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sleep 90
